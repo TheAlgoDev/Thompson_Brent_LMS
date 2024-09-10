@@ -4,22 +4,22 @@ include being able to add and remove books, as well as print a list of books tha
 
 Inputs for a Library are objects of Book class
  */
+package com.library;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+
 
 public class Library {
 
     // Attributes of a Library
     private ArrayList<Book> books;
-    private HashSet<String> bookIds;
     private static int size;
     private static String name;
 
     // Constructor
     public Library(int size, String name) {
         this.books = new ArrayList<>();
-        this.bookIds = new HashSet<>();
+
         this.size = size;
         this.name = name;
     }
@@ -27,7 +27,7 @@ public class Library {
     // OverLoaded Constructor
     public Library() {
         this.books = new ArrayList<>();
-        this.bookIds = new HashSet<>();
+
         this.size = 0;
         this.name = "Local";
     }
@@ -45,7 +45,7 @@ public class Library {
         this.name = name;
     }
 
-// Methods
+    // Methods
 /*
     Add book is used to add a book object to a library, and add to the size of the library
 
@@ -55,11 +55,11 @@ public class Library {
         books.add(book);
         size += 1;
     }
-/*
-    Remove book allows the user to remove a book using its ID.
+    /*
+        Remove book allows the user to remove a book using its ID.
 
-        Returns an updated library object
- */
+            Returns an updated library object
+     */
     public void removeBook(int idToRemove) {
         boolean removed = books.removeIf(Book -> Book.getID() == idToRemove);
         if (removed) {
@@ -73,11 +73,11 @@ public class Library {
         }
     }
 
-/*
-    Over-ridden toString method to be able to print details of the library
+    /*
+        Over-ridden toString method to be able to print details of the library
 
-        Returns a string of text that contains information about the library
- */
+            Returns a string of text that contains information about the library
+     */
     @Override
     public String toString() {
         return "Library details [Library Size=" + size + ", name=" + name + "]\n";
